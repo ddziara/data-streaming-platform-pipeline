@@ -103,3 +103,6 @@ jobs:
           -var="confluent_cloud_api_secret=$TF_VAR_CONFLUENT_CLOUD_API_SECRET"
           -var="confluent_cloud_environment_name=${{ matrix.environment }}"
         working-directory: ${{ matrix.environment }}
+
+      - name: Output Apply Log
+        run: cat apply.log  
