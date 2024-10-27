@@ -130,9 +130,9 @@ jobs:
           terraform apply -auto-approve -input=false \
           -var="confluent_cloud_api_key=$TF_VAR_CONFLUENT_CLOUD_API_KEY" \
           -var="confluent_cloud_api_secret=$TF_VAR_CONFLUENT_CLOUD_API_SECRET" \
-          -var="confluent_cloud_environment_name=${{ matrix.environment }}" \
-          -json | tee apply.log
+          -var="confluent_cloud_environment_name=${{ matrix.environment }}" 
+        # -json | tee apply.log
         working-directory: ${{ matrix.environment }}
 
-      - name: Output Apply Log
-        run: cat apply.log  
+      # - name: Output Apply Log
+      #   run: cat apply.log  
