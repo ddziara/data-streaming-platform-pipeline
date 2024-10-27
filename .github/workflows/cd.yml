@@ -104,12 +104,19 @@ jobs:
 #            console.log('github.ref:', github.ref);
 #            console.log('github.event.pull_request.merged:', github.event.pull_request ? github.event.pull_request.merged : 'No pull request event');
 
-      - name: Log GitHub context
+#      - name: Log GitHub context
+#        uses: actions/github-script@v6
+#        with:
+#          script: |
+#            console.log(JSON.stringify(github, null, 2));
+
+      - name: Log GitHub context 2
         uses: actions/github-script@v6
         with:
           script: |
-            console.log(JSON.stringify(github, null, 2));
-            
+            console.log('github.ref:', github.ref);
+            console.log('github.event:', github.event);
+
       - name: Terraform Apply
         if: github.ref == 'main' && github.event.pull_request.merged
         run: |
